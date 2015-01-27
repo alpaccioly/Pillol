@@ -1,9 +1,9 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Project\Scripts\Game\CharacterBehaviour.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Project\Scripts\Game\BulletBehaviour.cs">
     <Files>
-      <File FileName="Assets\Project\Scripts\Game\CharacterBehaviour.cs" Line="17" Column="10" />
-      <File FileName="Assets\Project\Scripts\Game\BulletBehaviour.cs" Line="11" Column="3" />
+      <File FileName="Assets\Project\Scripts\Game\CharacterBehaviour.cs" Line="19" Column="42" />
+      <File FileName="Assets\Project\Scripts\Game\BulletBehaviour.cs" Line="10" Column="20" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
