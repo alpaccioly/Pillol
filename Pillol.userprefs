@@ -1,8 +1,9 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace />
-  <MonoDevelop.Ide.Workbench ActiveDocument="C:\Users\Arthur\Documents\Juntor\Assets\JuntorBehaviour.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Project\Scripts\Game\CharacterBehaviour.cs">
     <Files>
-      <File FileName="C:\Users\Arthur\Documents\Juntor\Assets\JuntorBehaviour.cs" Line="8" Column="3" />
+      <File FileName="Assets\Project\Scripts\Game\CharacterBehaviour.cs" Line="17" Column="10" />
+      <File FileName="Assets\Project\Scripts\Game\BulletBehaviour.cs" Line="11" Column="3" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

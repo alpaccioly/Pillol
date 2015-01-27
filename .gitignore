@@ -6,3 +6,4 @@ Library
 /Assets/Project/Scripts/Game/*.meta
 /Assets/Project/Scripts/Game/Board/*.meta
 /Assets/*.meta
+/Temp/*
