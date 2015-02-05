@@ -1,9 +1,32 @@
-Library
-/Assets/Project/*.meta
-/Assets/Project/Resources/*.meta
-/Assets/Project/Scenes/*.meta
-/Assets/Project/Scripts/*.meta
-/Assets/Project/Scripts/Game/*.meta
-/Assets/Project/Scripts/Game/Board/*.meta
-/Assets/*.meta
-/Temp/*
+# =============== #
+# Unity generated #
+# =============== #
+Temp/
+Library/
+**/*.meta
+
+# ===================================== #
+# Visual Studio / MonoDevelop generated #
+# ===================================== #
+ExportedObj/
+obj/
+*.svd
+*.userprefs
+/*.csproj
+*.pidb
+*.suo
+/*.sln
+*.user
+*.unityproj
+*.booproj
+
+# ============ #
+# OS generated #
+# ============ #
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
