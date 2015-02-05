@@ -6,14 +6,15 @@ namespace FiniteStateMachine
     public class FSM<T>
     {
         State<T> CurrentState;
-        T Entity;
+        public T Entity;
 
         // Use this for initialization
-        public FSM() : this(null)
+        public FSM(T entity) : this(entity, null)
         {
         }
-        public FSM(State<T> initial)
+        public FSM(T entity, State<T> initial)
         {
+            Entity = entity;
             ChangeState(initial);
         }
 

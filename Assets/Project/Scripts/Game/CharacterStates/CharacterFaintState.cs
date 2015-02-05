@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections;
 using FiniteStateMachine;
 
-public class CharacterFaintState<T> : State<T>
+public class CharacterFaintState<T> : State<CharacterBehaviour>
 {
     public override void Start()
     {

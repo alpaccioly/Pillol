@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections;
 using FiniteStateMachine;
 
-public class CharacterReceiveDamageState<T> : State<T>
+public class CharacterReceiveDamageState<T> : State<CharacterBehaviour>
 {
     public override void Start()
     {
