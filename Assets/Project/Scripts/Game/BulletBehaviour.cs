@@ -2,53 +2,52 @@
 using System.Collections;
 
 public class BulletBehaviour : MonoBehaviour {
-	private Vector3 position, target;
-	private float speed = 5f;
+	public Vector3 Position;
+	private Vector3 target;
+	private float speed = 20f;
 	private float h = 3.0f;
+	private float d;
 	private double damage; //CALCULAR DE ACORDO COM PROPRIEDADES
-	private float tmax;
 	private bool strt;
 	private float t;
-	private CharacterBehaviour chr;
+	public CharacterBehaviour Chr;
 
 	// Use this for initialization
 	void Awake () {
-		t = 0.0f;
+
 	}
 	void Start () {
-	
+		t = Time.time;
+		Debug.Log (t);
 	}
-	public void MoveTo (Vector3 posicaoAlvo, CharacterBehaviour charBehaviour){
-		chr = charBehaviour;
+	public void MoveTo (Vector3 posicaoAlvo){
 		target = posicaoAlvo;
-		float d = Vector3.Distance (position, target);
-		tmax = d / speed;
-		Debug.Log (d);
-		Debug.Log (tmax);
+		Debug.Log (target);
+		d = Vector3.Distance (Position, target);
 		strt = true;
 	}
-	void ChangePosition (float t){
-		if (t >= 0 && t < 1) {
-						position = (1 - t) * position + t * target;
-						position.y = 4 * h * (t - t * t);
-						Debug.Log (position);
-						transform.localPosition = position;
-				}
+	void ChangePosition (float Tm){
+		float distCovered = (Tm - t) * speed;
+		float fracJourney = distCovered / d;
+		Vector3 v = Vector3.Lerp(Position, target, fracJourney);
+		transform.localPosition = new Vector3 (v.x, v.y - 4.0f * h * ((fracJourney * fracJourney) - fracJourney) , v.z);
+
 	}
+
 	void OnTriggerEnter (Collider col){
 		Debug.Log ("Colidiu");
+		Debug.Log (col.transform.name);
 		CharacterBehaviour ch = col.transform.GetComponent<CharacterBehaviour>();
-		if (ch != null && ch != chr){
+		if (ch != null && ch != Chr && ch.TeamNumber != Chr.TeamNumber){
 				ch.Hit (damage);
 				Destroy (gameObject);
+			Debug.Log (Time.time);
 			}
 	}
-	
 	// Update is called once per frame
 	void Update () {
 		if (strt) {
-			t = t + Time.deltaTime;
-			ChangePosition(t/tmax);	
+		ChangePosition (Time.time);
 		}
 	
 	}
