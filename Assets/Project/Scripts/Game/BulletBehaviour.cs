@@ -7,7 +7,7 @@ public class BulletBehaviour : MonoBehaviour {
 	private float speed = 20f;
 	private float h = 3.0f;
 	private float d;
-	private double damage; //CALCULAR DE ACORDO COM PROPRIEDADES
+	private float damage; //CALCULAR DE ACORDO COM PROPRIEDADES
 	private bool strt;
 	private float t;
 	public CharacterBehaviour Chr;

@@ -1,14 +1,18 @@
 ﻿using UnityEngine;
 using System.Collections;
+using Board;
+using System.Collections.Generic;
 
 public class CharacterBehaviour : MonoBehaviour {
 
 	public int TeamNumber;
 	public Transform enemy;
 	private Transform firePointTr;
+	private BoardBehaviour board;
 	// Use this for initialization
 	void Awake () {
 		firePointTr = transform.Find ("FirePoint");
+		board = transform.parent.GetComponent<BoardBehaviour>();
 	}
 	void Start () {
 	
@@ -26,17 +30,27 @@ public class CharacterBehaviour : MonoBehaviour {
 		bala.MoveTo (alvo.localPosition);
 
 	}
-	CharacterBehaviour FindEnemy () {
-		//todo
-		return this;
+		Transform FindEnemy () {
+			Transform nearest = null;
+			List<CharacterBehaviour> team = board.GetTeam ((TeamNumber + 1) % 2);
+			foreach (CharacterBehaviour enm in team) {
+				Vector3 enemyPosition = enm.transform.localPosition;
+				Vector3 myPosition = this.transform.localPosition;
+				if (enm.Lifebar != 0) {
+						if (nearest == null || Vector3.Distance (myPosition, enemyPosition) <= Vector3.Distance (myPosition, nearest.localPosition)) {
+								nearest = enm.transform;
+						}
+				} 
+			}
+			return nearest;
+		}
+		
+	public void Hit (float damage) {
+		lifebar = Mathf.Max (lifebar - damage, 0f);
 	}
+	private float lifebar;
 
-	public void Hit (double damage) {
-		lifebar = lifebar - damage;
-	}
-	private double lifebar;
-
-	public double Lifebar{
+	public float Lifebar{
 		get
 		{
 			return lifebar;

@@ -1,27 +1,34 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
-namespace Board
-{
-	public class BoardBehaviour : MonoBehaviour 
+
+	namespace Board
 	{
-		private int sizeX = 10;
-		private int sizeY = 5;
+		public class BoardBehaviour : MonoBehaviour {
+		public List<CharacterBehaviour> TeamA, TeamB;
 
-		public PointBoard? GetPositionBoard(Vector3 point)
-		{
-			Vector3 scale = transform.Find ("Floor").transform.localScale;
-			Vector3 origin = new Vector3(-scale.x/2,0,-scale.z/2);
-			Vector3 rel = (point - origin);
-			PointBoard p = new PointBoard ();
-			p.I = (int)((rel.x / scale.x) * sizeX);
-			p.J = (int)((rel.z / scale.z) * sizeY);
-			return p;
+		public void AddToTeam (int teamNo, CharacterBehaviour character){
+			if (teamNo == 0) 
+			{
+				TeamA.Add (character);
+			} 
+			else if (teamNo == 1) 
+			{
+				TeamB.Add (character);
+			}
 		}
+		public List<CharacterBehaviour> GetTeam(int team)
+		{
+			if (team == 0) 
+			{
+				return TeamA;
+			}
+			else if (team == 1)
+			{
+				return TeamB;
+			}
+			return null;
 	}
-	public struct PointBoard
-	{
-		public int I;
-		public int J;
 	}
 }

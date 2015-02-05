@@ -12,8 +12,8 @@ public class CubeBehaviour : MonoBehaviour {
 	}
 	// Update is called once per frame
 	void Update () {
-		PointBoard p = (PointBoard)BoardScript.GetPositionBoard (transform.localPosition);
-		Debug.Log (string.Format("{0}, {1}",p.I, p.J));
+		//PointBoard p = (PointBoard)BoardScript.GetPositionBoard (transform.localPosition);
+		//Debug.Log (string.Format("{0}, {1}",p.I, p.J));
 		       
 	}
 }
