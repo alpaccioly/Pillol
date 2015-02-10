@@ -8,9 +8,9 @@ public class CharacterBehaviour : MonoBehaviour
 {
     public FSM<CharacterBehaviour> fsm;
     public int TeamNumber;
-    public Transform enemy;
     private Transform firePointTr;
     private BoardBehaviour board;
+    private float lifebar = 10.0f;
 
     public CharacterBehaviour()
     {
@@ -33,9 +33,7 @@ public class CharacterBehaviour : MonoBehaviour
     {
         GameObject go = (GameObject)Instantiate(Resources.Load("Bullet"));
         go.transform.parent = transform.parent.parent;
-        Debug.Log(go.transform.parent);
         go.transform.localPosition = firePointTr.localPosition + this.transform.localPosition;
-        Debug.Log(go.transform.localPosition);
         go.transform.localScale = Vector3.one;
         BulletBehaviour bala = go.GetComponent<BulletBehaviour>();
         bala.Chr = this;
@@ -48,12 +46,13 @@ public class CharacterBehaviour : MonoBehaviour
         Transform nearest = null;
         float nearestDistance = float.PositiveInfinity;
         List<CharacterBehaviour> team = board.GetTeam(TeamNumber == 1 ? 0 : 1);
+
         foreach (CharacterBehaviour enm in team)
         {
             Vector3 enemyPosition = enm.transform.localPosition;
             Vector3 myPosition = this.transform.localPosition;
             float distance = Vector3.Distance(myPosition, enemyPosition);
-            if (enm.Lifebar != 0 && distance < nearestDistance)
+            if (enm.Lifebar > 0 && (nearest == null || distance < nearestDistance))
             {
                 nearest = enm.transform;
                 nearestDistance = distance;
@@ -66,7 +65,6 @@ public class CharacterBehaviour : MonoBehaviour
     {
         lifebar = Mathf.Max(lifebar - damage, 0f);
     }
-    private float lifebar;
 
     public float Lifebar
     {

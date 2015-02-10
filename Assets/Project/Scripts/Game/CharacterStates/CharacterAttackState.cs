@@ -14,6 +14,7 @@ public class CharacterAttackState<T> : State<CharacterBehaviour>
 
     public override void Start()
     {
+
     }
     
     public override void Update()
