@@ -61,9 +61,9 @@ public class CharacterBehaviour : MonoBehaviour
         return nearest;
     }
 		
-    public void Hit(float damage)
+    public void triggerHit(float damage)
     {
-        lifebar = Mathf.Max(lifebar - damage, 0f);
+        fsm.ChangeState(new CharacterHitState<CharacterBehaviour>(damage));
     }
 
     public float Lifebar
