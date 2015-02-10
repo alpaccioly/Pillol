@@ -3,6 +3,7 @@ using System.Collections;
 
 public class BulletBehaviour : MonoBehaviour
 {
+    public CharacterBehaviour Chr;
     public Vector3 Position;
     private Vector3 target;
     private float speed = 20f;
@@ -11,7 +12,9 @@ public class BulletBehaviour : MonoBehaviour
     private float damage; //CALCULAR DE ACORDO COM PROPRIEDADES
     private bool strt;
     private float t;
-    public CharacterBehaviour Chr;
+
+    private const float maximumBulletLife = 10f;
+    private float currentBulletLife = 0f;
 
     // Use this for initialization
     void Awake()
@@ -54,6 +57,10 @@ public class BulletBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        currentBulletLife += Time.deltaTime;
+        if (currentBulletLife >= maximumBulletLife)
+            Destroy(gameObject);
+
         if (strt)
         {
             ChangePosition(Time.time);
