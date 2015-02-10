@@ -25,7 +25,7 @@ public class CharacterBehaviour : MonoBehaviour
 
     public CharacterBehaviour()
     {
-        fsm = new FSM<CharacterBehaviour>(this, new CharacterIdleState<CharacterBehaviour>());
+        fsm = new FSM<CharacterBehaviour>(this, new CharacterPreGameState<CharacterBehaviour>());
     }
 
     // Use this for initialization

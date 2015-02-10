@@ -6,14 +6,24 @@ namespace Board
 {
     public class BoardBehaviour : MonoBehaviour
     {
+        public List<CharacterBehaviour> TeamA, TeamB;
        
-        void Awake () {
+        void Awake()
+        {
 
         }
-        void Init () {
-        
+
+        public void Init()
+        {
+            foreach (CharacterBehaviour ch in TeamA)
+            {
+                ch.fsm.ChangeState(new CharacterIdleState<CharacterBehaviour>());
+            }
+            foreach (CharacterBehaviour ch in TeamB)
+            {
+                ch.fsm.ChangeState(new CharacterIdleState<CharacterBehaviour>());
+            }
         }
-        public List<CharacterBehaviour> TeamA, TeamB;
 
         public void AddToTeam(int teamNo, CharacterBehaviour character)
         {
