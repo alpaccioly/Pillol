@@ -6,6 +6,12 @@ namespace Board
 {
     public class BoardBehaviour : MonoBehaviour
     {
+       
+        void Awake () {
+
+        }
+        
+       
         public List<CharacterBehaviour> TeamA, TeamB;
 
         public void AddToTeam(int teamNo, CharacterBehaviour character)

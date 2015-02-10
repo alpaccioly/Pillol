@@ -54,6 +54,8 @@
      <Compile Include="Assets\Project\Scripts\Game\CharacterStates\CharacterHitState.cs" />
      <Compile Include="Assets\Project\Scripts\Game\CharacterStates\CharacterIdleState.cs" />
      <Compile Include="Assets\Project\Scripts\Game\CubeBehaviour.cs" />
+     <Compile Include="Assets\Project\Scripts\Game\LifebarBehaviour.cs" />
+     <Compile Include="Assets\Project\Scripts\Game\TimerBehaviour.cs" />
      <Compile Include="Assets\Project\Scripts\Util\FSM\FSM.cs" />
      <Compile Include="Assets\Project\Scripts\Util\FSM\State.cs" />
   </ItemGroup>
