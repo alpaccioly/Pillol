@@ -51,8 +51,8 @@
      <Compile Include="Assets\Project\Scripts\Game\CharacterBehaviour.cs" />
      <Compile Include="Assets\Project\Scripts\Game\CharacterStates\CharacterAttackState.cs" />
      <Compile Include="Assets\Project\Scripts\Game\CharacterStates\CharacterFaintState.cs" />
+     <Compile Include="Assets\Project\Scripts\Game\CharacterStates\CharacterHitState.cs" />
      <Compile Include="Assets\Project\Scripts\Game\CharacterStates\CharacterIdleState.cs" />
-     <Compile Include="Assets\Project\Scripts\Game\CharacterStates\CharacterReceiveDamageState.cs" />
      <Compile Include="Assets\Project\Scripts\Game\CubeBehaviour.cs" />
      <Compile Include="Assets\Project\Scripts\Util\FSM\FSM.cs" />
      <Compile Include="Assets\Project\Scripts\Util\FSM\State.cs" />

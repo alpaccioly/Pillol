@@ -49,9 +49,8 @@ public class BulletBehaviour : MonoBehaviour
         CharacterBehaviour ch = col.transform.GetComponent<CharacterBehaviour>();
         if (ch != null && ch != Chr && ch.TeamNumber != Chr.TeamNumber)
         {
-            ch.Hit(damage);
+            ch.triggerHit(damage);
             Destroy(gameObject);
-            Debug.Log(Time.time);
         }
     }
     // Update is called once per frame
