@@ -60,6 +60,41 @@
      <Compile Include="Assets\Project\Scripts\Game\TimerBehaviour.cs" />
      <Compile Include="Assets\Project\Scripts\Util\FSM\FSM.cs" />
      <Compile Include="Assets\Project\Scripts\Util\FSM\State.cs" />
+     <Compile Include="Assets\Scripts\ModelsController.cs" />
+     <Compile Include="Assets\metaio\Classes\AssetsManager.cs" />
+     <Compile Include="Assets\metaio\Classes\CameraType.cs" />
+     <Compile Include="Assets\metaio\Classes\ColorFormat.cs" />
+     <Compile Include="Assets\metaio\Classes\Internal\UnityCommunicationProtos.cs" />
+     <Compile Include="Assets\metaio\Classes\Internal\Util.cs" />
+     <Compile Include="Assets\metaio\Classes\LLACoordinate.cs" />
+     <Compile Include="Assets\metaio\Classes\MapLoader.cs" />
+     <Compile Include="Assets\metaio\Classes\MetaioCamera.cs" />
+     <Compile Include="Assets\metaio\Classes\MetaioSDKUnity.cs" />
+     <Compile Include="Assets\metaio\Classes\TrackingValues.cs" />
+     <Compile Include="Assets\metaio\Classes\Vector2d.cs" />
+     <Compile Include="Assets\metaio\Classes\Vector2di.cs" />
+     <Compile Include="Assets\metaio\Classes\Vector3d.cs" />
+     <Compile Include="Assets\metaio\Classes\Vector4d.cs" />
+     <Compile Include="Assets\metaio\Classes\VisualSearchResponse.cs" />
+     <Compile Include="Assets\metaio\Scripts\EditorOnly.cs" />
+     <Compile Include="Assets\metaio\Scripts\GestureHandler.cs" />
+     <Compile Include="Assets\metaio\Scripts\metaioCallback.cs" />
+     <Compile Include="Assets\metaio\Scripts\metaioCamera.cs" />
+     <Compile Include="Assets\metaio\Scripts\metaioDeviceCamera.cs" />
+     <Compile Include="Assets\metaio\Scripts\metaioMovieTexture.cs" />
+     <Compile Include="Assets\metaio\Scripts\metaioSDK.cs" />
+     <Compile Include="Assets\metaio\Scripts\metaioTracker.cs" />
+     <None Include="Assets\StreamingAssets\MetaioSDKLicense.xml" />
+     <None Include="Assets\StreamingAssets\TrackingData_IDMarker.xml" />
+     <None Include="Assets\Plugins\Google.ProtocolBuffers.Serialization.xml" />
+     <None Include="Assets\Plugins\Google.ProtocolBuffers.xml" />
+     <None Include="Assets\Resources\metaio\UnlitTexture.shader" />
+ <Reference Include="Google.ProtocolBuffers">
+ <HintPath>D:/Projects/Pillol/Assets/Plugins/Google.ProtocolBuffers.dll</HintPath>
+ </Reference>
+ <Reference Include="Google.ProtocolBuffers.Serialization">
+ <HintPath>D:/Projects/Pillol/Assets/Plugins/Google.ProtocolBuffers.Serialization.dll</HintPath>
+ </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
