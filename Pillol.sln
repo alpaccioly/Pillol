@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 
 Project("{37E19582-DCC4-0671-95B6-14266B90ED1C}") = "Pillol", "Assembly-CSharp.csproj", "{71670EFF-06D8-7EC5-CC9A-44282E4A3038}"
 EndProject
+Project("{37E19582-DCC4-0671-95B6-14266B90ED1C}") = "Pillol", "Assembly-CSharp-Editor.csproj", "{EA6F0EE3-B20D-0819-7566-D35850DFEB1A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,11 +15,15 @@ Global
 		{71670EFF-06D8-7EC5-CC9A-44282E4A3038}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{71670EFF-06D8-7EC5-CC9A-44282E4A3038}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{71670EFF-06D8-7EC5-CC9A-44282E4A3038}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EA6F0EE3-B20D-0819-7566-D35850DFEB1A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA6F0EE3-B20D-0819-7566-D35850DFEB1A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA6F0EE3-B20D-0819-7566-D35850DFEB1A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EA6F0EE3-B20D-0819-7566-D35850DFEB1A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
-							GlobalSection(MonoDevelopProperties) = preSolution
+																											GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = Assembly-CSharp.csproj
 		Policies = $0
 		$0.TextStylePolicy = $1
