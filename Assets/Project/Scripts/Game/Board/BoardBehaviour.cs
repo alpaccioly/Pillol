@@ -10,8 +10,9 @@ namespace Board
         void Awake () {
 
         }
+        void Init () {
         
-       
+        }
         public List<CharacterBehaviour> TeamA, TeamB;
 
         public void AddToTeam(int teamNo, CharacterBehaviour character)

@@ -2,18 +2,24 @@
 using System.Collections;
 
 public class TimerBehaviour : MonoBehaviour {
-
     private float tempo = 5.0f;
-	void Start () {
+    private int tempoInt;
+    private TextMesh txt;
+	void Awake () {
+        txt = this.GetComponent <TextMesh>();
+    }
+    void Start () {
 	
 	}
 	// Update is called once per frame
 	void Update () {
         tempo -= Time.deltaTime;
-        if (tempo <= 0)
+        tempoInt = (int)Mathf.Ceil(tempo);
+        if (tempoInt == 0)
         {
-           // Destroy(this);
+           Destroy(gameObject);
         }
+        txt.text = tempoInt.ToString();
 	}
    
 }
