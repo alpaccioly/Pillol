@@ -2,11 +2,15 @@ using UnityEngine;
 using System.Collections;
 using FiniteStateMachine;
 
-public class CharacterFaintState<T> : CharacterBaseState
+public class CharacterPreGameState<T> : CharacterBaseState
 {
+    public void triggetStartGame()
+    {
+        Fsm.ChangeState(new CharacterIdleState<CharacterBehaviour>());
+    }
+
     public override void Start()
     {
-        Debug.Log("DIED :(");
     }
     
     public override void Update()
@@ -15,10 +19,5 @@ public class CharacterFaintState<T> : CharacterBaseState
     
     public override void End()
     {
-    }
-
-    public new void triggerHit(BulletBehaviour bullet)
-    {
-
     }
 }

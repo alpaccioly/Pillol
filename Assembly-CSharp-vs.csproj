@@ -50,9 +50,11 @@
      <Compile Include="Assets\Project\Scripts\Game\BulletBehaviour.cs" />
      <Compile Include="Assets\Project\Scripts\Game\CharacterBehaviour.cs" />
      <Compile Include="Assets\Project\Scripts\Game\CharacterStates\CharacterAttackState.cs" />
+     <Compile Include="Assets\Project\Scripts\Game\CharacterStates\CharacterBaseState.cs" />
      <Compile Include="Assets\Project\Scripts\Game\CharacterStates\CharacterFaintState.cs" />
      <Compile Include="Assets\Project\Scripts\Game\CharacterStates\CharacterHitState.cs" />
      <Compile Include="Assets\Project\Scripts\Game\CharacterStates\CharacterIdleState.cs" />
+     <Compile Include="Assets\Project\Scripts\Game\CharacterStates\CharacterPreGameState.cs" />
      <Compile Include="Assets\Project\Scripts\Game\CubeBehaviour.cs" />
      <Compile Include="Assets\Project\Scripts\Game\LifebarBehaviour.cs" />
      <Compile Include="Assets\Project\Scripts\Game\TimerBehaviour.cs" />

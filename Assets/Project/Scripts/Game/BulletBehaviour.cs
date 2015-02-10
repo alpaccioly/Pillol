@@ -6,10 +6,17 @@ public class BulletBehaviour : MonoBehaviour
     public CharacterBehaviour Chr;
     public Vector3 Position;
     private Vector3 target;
+
+    // Arma do atirador
+    public float Aa;
+    // Habilidade do jogador
+    public float Aj;
+    // Distancia do jogador ate o alvo
+    public float Rj;
+
     private float speed = 20f;
     private float h = 3.0f;
     private float d;
-    private float damage; //CALCULAR DE ACORDO COM PROPRIEDADES
     private bool strt;
     private float t;
 
@@ -26,11 +33,14 @@ public class BulletBehaviour : MonoBehaviour
         t = Time.time;
         Debug.Log(t);
     }
-    public void MoveTo(Vector3 posicaoAlvo)
+    public void MoveTo(Vector3 posicaoAlvo, float weaponPower, float attackPower)
     {
         target = posicaoAlvo;
         Debug.Log(target);
         d = Vector3.Distance(Position, target);
+        Rj = d;
+        Aa = weaponPower;
+        Aj = attackPower;
         strt = true;
     }
     void ChangePosition(float Tm)
@@ -39,7 +49,14 @@ public class BulletBehaviour : MonoBehaviour
         float fracJourney = distCovered / d;
         Vector3 v = Vector3.Lerp(Position, target, fracJourney);
         transform.localPosition = new Vector3(v.x, v.y - 4.0f * h * ((fracJourney * fracJourney) - fracJourney), v.z);
+    }
 
+    private bool didHit()
+    {
+        const float c = 2f , p1= 1f , p2= 1f;
+        float rand = Random.Range(0f, 1f);
+        float p = c * Aj * Aj * Mathf.Sqrt(Aa * p1 - (1f / Rj) * p2);
+        return rand < p;
     }
 
     void OnTriggerEnter(Collider col)
@@ -49,7 +66,8 @@ public class BulletBehaviour : MonoBehaviour
         CharacterBehaviour ch = col.transform.GetComponent<CharacterBehaviour>();
         if (ch != null && ch != Chr && ch.TeamNumber != Chr.TeamNumber)
         {
-            ch.triggerHit(damage);
+            if (didHit())
+                ch.triggerHit(this);
             Destroy(gameObject);
         }
     }

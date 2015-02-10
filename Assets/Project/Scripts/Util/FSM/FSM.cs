@@ -5,7 +5,7 @@ namespace FiniteStateMachine
 {
     public class FSM<T>
     {
-        State<T> CurrentState;
+        public State<T> CurrentState;
         public T Entity;
 
         // Use this for initialization

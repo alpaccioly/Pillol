@@ -10,7 +10,18 @@ public class CharacterBehaviour : MonoBehaviour
     public int TeamNumber;
     private Transform firePointTr;
     private BoardBehaviour board;
-    private float lifebar = 10.0f;
+
+    private float lifebar = 1000f;
+
+    // Frequencia de tiro
+    public float attackFreqMax = 2f, attackFreqMin = 3f;
+
+    // Arma do atirador
+    public float Aa = 10f;
+    // Habilidade do jogador
+    public float Aj = 10f;
+    // Defesa do personagem
+    public float Dp = 10f;
 
     public CharacterBehaviour()
     {
@@ -38,7 +49,7 @@ public class CharacterBehaviour : MonoBehaviour
         BulletBehaviour bala = go.GetComponent<BulletBehaviour>();
         bala.Chr = this;
         bala.Position = go.transform.localPosition;
-        bala.MoveTo(alvo.localPosition);
+        bala.MoveTo(alvo.localPosition, Aa, Aj);
     }
 
     public Transform FindEnemy()
@@ -60,10 +71,15 @@ public class CharacterBehaviour : MonoBehaviour
         }
         return nearest;
     }
-		
-    public void triggerHit(float damage)
+
+    public void Hit(float damage)
     {
-        fsm.ChangeState(new CharacterHitState<CharacterBehaviour>(damage));
+        lifebar = Mathf.Max(lifebar - damage, 0f);
+    }
+		
+    public void triggerHit(BulletBehaviour bullet)
+    {
+        ((CharacterBaseState)fsm.CurrentState).triggerHit(bullet);
     }
 
     public float Lifebar

@@ -2,9 +2,9 @@ using UnityEngine;
 using System.Collections;
 using FiniteStateMachine;
 
-public class CharacterAttackState<T> : State<CharacterBehaviour>
+public class CharacterAttackState<T> : CharacterBaseState
 {
-    float time = 3.0f;
+    float time;
     Transform enemy;
 
     public CharacterAttackState(Transform enemy)
@@ -14,7 +14,7 @@ public class CharacterAttackState<T> : State<CharacterBehaviour>
 
     public override void Start()
     {
-
+        time = Random.Range(Fsm.Entity.attackFreqMin, Fsm.Entity.attackFreqMax);
     }
     
     public override void Update()
@@ -23,7 +23,7 @@ public class CharacterAttackState<T> : State<CharacterBehaviour>
 
         if (time < 0f)
         {
-            time = 3.0f;
+            time = Random.Range(Fsm.Entity.attackFreqMin, Fsm.Entity.attackFreqMax);
 
             if (enemy != null)
                 Fsm.Entity.Attack(enemy);
