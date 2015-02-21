@@ -11,7 +11,7 @@ public class CharacterBehaviour : MonoBehaviour
     private Transform firePointTr;
     private BoardBehaviour board;
 
-    private float lifebar = 1000f;
+    public float Lifebar = 1000f;
 
     // Frequencia de tiro
     public float attackFreqMax = 2f, attackFreqMin = 3f;
@@ -23,15 +23,11 @@ public class CharacterBehaviour : MonoBehaviour
     // Defesa do personagem
     public float Dp = 10f;
 
-    public CharacterBehaviour()
-    {
-        fsm = new FSM<CharacterBehaviour>(this, new CharacterPreGameState<CharacterBehaviour>());
-    }
-
     // Use this for initialization
     void Awake()
     {
         firePointTr = transform.Find("FirePoint");
+        fsm = new FSM<CharacterBehaviour>(this, new CharacterPreGameState<CharacterBehaviour>());
     }
 
     void Start()
@@ -74,24 +70,12 @@ public class CharacterBehaviour : MonoBehaviour
 
     public void Hit(float damage)
     {
-        lifebar = Mathf.Max(lifebar - damage, 0f);
+        Lifebar = Mathf.Max(Lifebar - damage, 0f);
     }
 		
     public void triggerHit(BulletBehaviour bullet)
     {
         ((CharacterBaseState)fsm.CurrentState).triggerHit(bullet);
-    }
-
-    public float Lifebar
-    {
-        get
-        {
-            return lifebar;
-        }
-        set
-        {
-            lifebar = value;	
-        }
     }
 
     // Update is called once per frame

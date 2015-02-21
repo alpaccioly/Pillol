@@ -22,7 +22,7 @@ public class TimerBehaviour : MonoBehaviour
         tempoInt = (int)Mathf.Ceil(tempo);
         if (tempoInt == 0)
         {
-            transform.parent.parent.parent.GetComponent<BoardBehaviour>().Init();
+            transform.parent.GetComponent<BoardBehaviour>().Init();
             Destroy(gameObject);
         }
         txt.text = tempoInt.ToString();
