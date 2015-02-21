@@ -32,12 +32,12 @@ public class CharacterBehaviour : MonoBehaviour
     void Awake()
     {
         firePointTr = transform.Find("FirePoint");
-        board = transform.parent.parent.GetComponent<BoardBehaviour>();
     }
 
     void Start()
     {
-	 
+        // Tem que estart aqui no Start
+        board = transform.parent.parent.GetComponent<BoardBehaviour>();
     }
 
     public void Attack(Transform alvo)
