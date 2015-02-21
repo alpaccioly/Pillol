@@ -46,7 +46,7 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Project\Scripts\Game\Board\BoardBehaviour.cs" />
+     <Compile Include="Assets\Project\Scripts\Game\BoardBehaviour.cs" />
      <Compile Include="Assets\Project\Scripts\Game\BulletBehaviour.cs" />
      <Compile Include="Assets\Project\Scripts\Game\CharacterBehaviour.cs" />
      <Compile Include="Assets\Project\Scripts\Game\CharacterStates\CharacterAttackState.cs" />
