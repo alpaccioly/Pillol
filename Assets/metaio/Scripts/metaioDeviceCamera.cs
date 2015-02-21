@@ -261,6 +261,6 @@ public class metaioDeviceCamera : MonoBehaviour
 		float scale = MetaioSDKUnity.getCameraPlaneScale();
 		
 		// set scale of the camera plane
-		cameraPlane.transform.localScale = new Vector3(-scale, scale, scale);
+		cameraPlane.transform.localScale = new Vector3(scale, scale, scale);
 	}
 }

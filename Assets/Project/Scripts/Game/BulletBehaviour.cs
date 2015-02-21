@@ -31,12 +31,12 @@ public class BulletBehaviour : MonoBehaviour
     void Start()
     {
         t = Time.time;
-        Debug.Log(t);
+//        Debug.Log(t);
     }
     public void MoveTo(Vector3 posicaoAlvo, float weaponPower, float attackPower)
     {
         target = posicaoAlvo;
-        Debug.Log(target);
+//        Debug.Log(target);
         d = Vector3.Distance(Position, target);
         Rj = d;
         Aa = weaponPower;

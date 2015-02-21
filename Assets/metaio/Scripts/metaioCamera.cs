@@ -16,6 +16,7 @@ public class metaioCamera : MonoBehaviour
 	public void Awake()
 	{
 		instances.Add(this);
+
 	}
 
 	public void OnDestroy()
@@ -71,7 +72,7 @@ public class metaioCamera : MonoBehaviour
 			matrix.m23 = m[14];
 			matrix.m33 = m[15];
 			
-			camera.projectionMatrix = matrix;
+			camera.projectionMatrix = matrix * Matrix4x4.Scale(new Vector3(-1, 1, 1));
 
 			Debug.Log("Setting projection matrix: " + camera.projectionMatrix.ToString());
 			

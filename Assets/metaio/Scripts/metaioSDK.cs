@@ -66,6 +66,7 @@ public class metaioSDK : MonoBehaviour
 	[SerializeField]
 	public int cameraFacing = MetaioCamera.FACE_UNDEFINED;
 
+
 	// Whether stereo rendering is enabled (note that there is no property for see-through because that can simply be
 	// achieved by disabling the metaioDeviceCamera script)
 	[SerializeField]
@@ -322,8 +323,21 @@ public class metaioSDK : MonoBehaviour
 			Screen.orientation = ScreenOrientation.AutoRotation;
 		}
 
-		Debug.Log("Starting the default camera with facing: "+cameraFacing);
-		MetaioSDKUnity.startCamera(cameraFacing);
+        System.Collections.Generic.List<MetaioCamera> cameras = MetaioSDKUnity.getCameraList();
+
+        /*Debug.Log("Listing the cameras");
+
+        for (int i = 0; i < cameras.Count; i++)
+        {
+            Debug.Log("Camera " + (i+1) + " : " + cameras[i].friendlyName);
+        }*/
+
+		//Debug.Log("Starting the default camera with facing: " + cameraFacing);
+
+        //cameras [1].flip = MetaioCamera.FLIP_HORIZONTAL;
+        //Debug.Log("###WOPA####" + (int) cameras[1].flip);
+
+		MetaioSDKUnity.startCamera(cameras[1]);
 		
 		// Load tracking configuration
 		if (String.IsNullOrEmpty(trackingConfiguration))
