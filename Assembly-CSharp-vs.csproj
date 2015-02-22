@@ -85,11 +85,11 @@
      <Compile Include="Assets\metaio\Scripts\metaioMovieTexture.cs" />
      <Compile Include="Assets\metaio\Scripts\metaioSDK.cs" />
      <Compile Include="Assets\metaio\Scripts\metaioTracker.cs" />
-     <None Include="Assets\StreamingAssets\MetaioSDKLicense.xml" />
      <None Include="Assets\StreamingAssets\TrackingData_IDMarker.xml" />
-     <None Include="Assets\Plugins\Google.ProtocolBuffers.Serialization.xml" />
-     <None Include="Assets\Plugins\Google.ProtocolBuffers.xml" />
      <None Include="Assets\Resources\metaio\UnlitTexture.shader" />
+     <None Include="Assets\Plugins\Google.ProtocolBuffers.Serialization.xml" />
+     <None Include="Assets\StreamingAssets\MetaioSDKLicense.xml" />
+     <None Include="Assets\Plugins\Google.ProtocolBuffers.xml" />
  <Reference Include="Google.ProtocolBuffers">
  <HintPath>D:/Projects/Pillol/Assets/Plugins/Google.ProtocolBuffers.dll</HintPath>
  </Reference>
