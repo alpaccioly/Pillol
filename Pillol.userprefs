@@ -1,12 +1,11 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Project\Scripts\Game\CharacterStates\CharacterIdleState.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Project\Scripts\Game\LifebarBehaviour.cs">
     <Files>
-      <File FileName="Assets\metaio\Scripts\metaioCallback.cs" Line="37" Column="29" />
-      <File FileName="Assets\Project\Scripts\Game\BoardBehaviour.cs" Line="36" Column="20" />
-      <File FileName="Assets\metaio\Scripts\metaioSDK.cs" Line="18" Column="25" />
-      <File FileName="Assets\Project\Scripts\Game\CharacterBehaviour.cs" Line="29" Column="17" />
-      <File FileName="Assets\Project\Scripts\Game\CharacterStates\CharacterIdleState.cs" Line="20" Column="6" />
+      <File FileName="Assets\Project\Scripts\Game\LifebarBehaviour.cs" Line="21" Column="28" />
+      <File FileName="Assets\Project\Scripts\Game\BoardBehaviour.cs" Line="1" Column="1" />
+      <File FileName="Assets\metaio\Editor\metaioTrackerEditor.cs" Line="1" Column="1" />
+      <File FileName="Assets\metaio\Scripts\metaioSDK.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
