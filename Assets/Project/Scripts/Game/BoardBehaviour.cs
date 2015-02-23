@@ -9,30 +9,38 @@ namespace Board
         public List<CharacterBehaviour> TeamA, TeamB;
         public int membersPerTeam = 5;
        
+        private void InstChars(string[] names)
+        {
+            int size = names.Length;
+
+            for (int i = 0; i < size; i++)
+            {
+                if(i < (size / 2))
+                    TeamA.Add(InstChar(names[i], i, 0));
+                else
+                    TeamB.Add(InstChar(names[i], i, 1));
+            }
+        }
+
+        private CharacterBehaviour InstChar(string name, int marker, int team)
+        {
+            GameObject player = Instantiate(Resources.Load(name)) as GameObject;
+            player.transform.name = name;
+            player.transform.parent = transform.FindChild("metaioSDK");
+            player.transform.localPosition = new Vector3(-15f, 13 - marker * 2);
+            CharacterBehaviour cb = player.GetComponent<CharacterBehaviour>();
+            cb.TeamNumber = team;
+            player.GetComponent<metaioTracker>().cosID = marker;
+            return cb;
+        }
+
         void Awake()
         {
-            for (int i = 1; i != membersPerTeam; ++i)
-            {
-                GameObject player = Instantiate(Resources.Load("PufPowNega")) as GameObject;
-                player.transform.name = "CharacterA" + i;
-                player.transform.parent = transform.FindChild("metaioSDK");
-                player.transform.localPosition = new Vector3(-15f, 13 - i * 2);
-                CharacterBehaviour cb = player.GetComponent<CharacterBehaviour>();
-                cb.TeamNumber = 0;
-                player.GetComponent<metaioTracker>().cosID = i;
-                TeamA.Add(cb);
-            }
-            for (int i = 1; i != membersPerTeam; ++i)
-            {
-                GameObject player = Instantiate(Resources.Load("PufPowBichinho")) as GameObject;
-                player.transform.name = "CharacterB" + i;
-                player.transform.parent = transform.FindChild("metaioSDK");
-                player.transform.localPosition = new Vector3(-2f, 13 - i * 2);
-                CharacterBehaviour cb = player.GetComponent<CharacterBehaviour>();
-                cb.TeamNumber = 1;
-                player.GetComponent<metaioTracker>().cosID = i + membersPerTeam;
-                TeamB.Add(cb);
-            }
+            string[] names = {"PufPowBichinho", "PufPowGalego", "PufPowGarotaLoira",
+                "PufPowGordo", "PufPowMain", "PufPowNega", "PufPowNego",
+                "PufPowNerd", "PufPowPequena", "PufPowPunk"};
+
+            InstChars(names);
         }
 
         public void Init()

@@ -91,10 +91,10 @@
      <None Include="Assets\StreamingAssets\MetaioSDKLicense.xml" />
      <None Include="Assets\Plugins\Google.ProtocolBuffers.xml" />
  <Reference Include="Google.ProtocolBuffers">
- <HintPath>D:/Projects/Pillol/Assets/Plugins/Google.ProtocolBuffers.dll</HintPath>
+ <HintPath>C:/Users/Caio/Desktop/Pillol/Assets/Plugins/Google.ProtocolBuffers.dll</HintPath>
  </Reference>
  <Reference Include="Google.ProtocolBuffers.Serialization">
- <HintPath>D:/Projects/Pillol/Assets/Plugins/Google.ProtocolBuffers.Serialization.dll</HintPath>
+ <HintPath>C:/Users/Caio/Desktop/Pillol/Assets/Plugins/Google.ProtocolBuffers.Serialization.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

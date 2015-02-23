@@ -337,7 +337,7 @@ public class metaioSDK : MonoBehaviour
         //cameras [1].flip = MetaioCamera.FLIP_HORIZONTAL;
         //Debug.Log("###WOPA####" + (int) cameras[1].flip);
 
-		MetaioSDKUnity.startCamera(cameras[1]);
+		MetaioSDKUnity.startCamera(cameras[0]);
 		
 		// Load tracking configuration
 		if (String.IsNullOrEmpty(trackingConfiguration))
