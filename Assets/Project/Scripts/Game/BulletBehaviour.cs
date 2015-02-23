@@ -14,8 +14,8 @@ public class BulletBehaviour : MonoBehaviour
     // Distancia do jogador ate o alvo
     public float Rj;
 
-    private float speed = 90f;
-    private float h = 3.0f;
+    private float speed = 180f;
+    private float h = 60.0f;
     private float d;
     private bool strt;
     private float t;
