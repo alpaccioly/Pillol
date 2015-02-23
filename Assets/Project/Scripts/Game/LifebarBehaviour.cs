@@ -3,8 +3,6 @@ using System.Collections;
 
 public class LifebarBehaviour : MonoBehaviour {
     CharacterBehaviour cb;
-    private int life;
-    TextMesh txt;
     Transform barra;
     Vector3 barraSize;
     Vector3 targetSize;
@@ -13,8 +11,6 @@ public class LifebarBehaviour : MonoBehaviour {
     void Awake () {
         Transform pai = transform.parent;
         cb = pai.GetComponent<CharacterBehaviour>();
-        life = (int) Mathf.Ceil(cb.Lifebar);
-        txt = this.GetComponent<TextMesh>();
         barra = transform.Find("Bar");
         barraSize = barra.localScale;
         targetSize = barraSize;

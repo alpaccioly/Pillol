@@ -10,8 +10,11 @@ public class CharacterBehaviour : MonoBehaviour
     public int TeamNumber;
     private Transform firePointTr;
     private BoardBehaviour board;
+	private Transform lifebars;
     public bool isOnScene;
     public int cosID;
+	private Transform lifebarTeam;
+	private GlobalLifebarBehaviour lfb;
 
     public float Lifebar = 1000f;
 
@@ -37,6 +40,7 @@ public class CharacterBehaviour : MonoBehaviour
     {
         // Tem que estart aqui no Start
         board = transform.parent.parent.GetComponent<BoardBehaviour>();
+		lifebars = board.transform.Find ("Lifebars");
     }
 
     public void Attack(Transform alvo)
@@ -74,6 +78,16 @@ public class CharacterBehaviour : MonoBehaviour
     public void Hit(float damage)
     {
         Lifebar = Mathf.Max(Lifebar - damage, 0f);
+		if (TeamNumber == 0) {
+			lifebarTeam = lifebars.transform.Find ("GlobalLifebarA");
+			lfb = lifebarTeam.GetComponent<GlobalLifebarBehaviour>() ;
+			lfb.Lower (damage);
+		} else if (TeamNumber == 1) {
+			lifebarTeam = lifebars.transform.Find ("GlobalLifebarB");
+			lfb = lifebarTeam.GetComponent<GlobalLifebarBehaviour>() ;
+			lfb.Lower (damage);
+		}
+
     }
 		
     public void triggerHit(BulletBehaviour bullet)
