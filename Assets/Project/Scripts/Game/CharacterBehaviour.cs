@@ -10,6 +10,8 @@ public class CharacterBehaviour : MonoBehaviour
     public int TeamNumber;
     private Transform firePointTr;
     private BoardBehaviour board;
+    public bool isOnScene;
+    public int cosID;
 
     public float Lifebar = 1000f;
 
@@ -28,6 +30,7 @@ public class CharacterBehaviour : MonoBehaviour
     {
         firePointTr = transform.Find("FirePoint");
         fsm = new FSM<CharacterBehaviour>(this, new CharacterPreGameState<CharacterBehaviour>());
+        isOnScene = false;
     }
 
     void Start()

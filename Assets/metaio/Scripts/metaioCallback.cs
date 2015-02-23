@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using metaio;
 using metaio.unitycommunication.util;
+using Board;
 
 public class metaioCallback : MonoBehaviour 
 {
@@ -25,6 +26,16 @@ public class metaioCallback : MonoBehaviour
 	/// </param>
 	virtual protected void onTrackingEvent(List<TrackingValues> trackingValues)
 	{
+        foreach (TrackingValues t in trackingValues)
+        {
+//            if(t.state == TrackingState.Lost)
+//            {
+//            } else if(t.state == TrackingState.Found)
+//            {
+//                Debug.Log("Found COSID " + t.coordinateSystemID);
+//            }
+            transform.parent.GetComponent<BoardBehaviour>().setCharState(t.coordinateSystemID, t.state == TrackingState.Found);
+        }
 	}
 	
 	/// <summary>

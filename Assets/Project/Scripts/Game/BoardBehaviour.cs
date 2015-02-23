@@ -9,16 +9,34 @@ namespace Board
         public List<CharacterBehaviour> TeamA, TeamB;
         public int membersPerTeam = 5;
        
+        public void setCharState(int id, bool onScene)
+        {
+            List<CharacterBehaviour> list = new List<CharacterBehaviour>();
+
+            list.AddRange(TeamA);
+            list.AddRange(TeamB);
+
+            foreach (CharacterBehaviour cb in list)
+            {
+                if(cb.cosID == id)
+                {
+                    cb.isOnScene = onScene;
+                    Debug.Log("Setting character state: " + id + " " + onScene);
+                    return;
+                }
+            }
+        }
+
         private void InstChars(string[] names)
         {
             int size = names.Length;
 
-            for (int i = 0; i < size; i++)
+            for (int i = 1; i <= size; i++)
             {
-                if(i < (size / 2))
-                    TeamA.Add(InstChar(names[i], i, 0));
+                if (i <= (size / 2))
+                    TeamA.Add(InstChar(names[i - 1], i, 0));
                 else
-                    TeamB.Add(InstChar(names[i], i, 1));
+                    TeamB.Add(InstChar(names[i - 1], i, 1));
             }
         }
 
@@ -27,10 +45,10 @@ namespace Board
             GameObject player = Instantiate(Resources.Load(name)) as GameObject;
             player.transform.name = name;
             player.transform.parent = transform.FindChild("metaioSDK");
-            player.transform.localPosition = new Vector3(-15f, 13 - marker * 2);
             CharacterBehaviour cb = player.GetComponent<CharacterBehaviour>();
             cb.TeamNumber = team;
             player.GetComponent<metaioTracker>().cosID = marker;
+            cb.cosID = marker;
             return cb;
         }
 

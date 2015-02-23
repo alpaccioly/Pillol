@@ -25,8 +25,11 @@ public class CharacterAttackState<T> : CharacterBaseState
         {
             time = Random.Range(Fsm.Entity.attackFreqMin, Fsm.Entity.attackFreqMax);
 
-            if (enemy != null)
+            CharacterBehaviour enemyCB = enemy.gameObject.GetComponent<CharacterBehaviour>();
+            if (enemy != null && enemyCB.Lifebar > 0 && enemyCB.isOnScene)
                 Fsm.Entity.Attack(enemy);
+            else
+                Fsm.ChangeState(new CharacterIdleState<CharacterBehaviour>());
         }
     }
     

@@ -23,7 +23,7 @@ public class CharacterIdleState<T> : CharacterBaseState
         {
             time = totalTime;
             Transform enemy = Fsm.Entity.FindEnemy();
-            if (enemy != null)
+            if (enemy != null && enemy.gameObject.GetComponent<CharacterBehaviour>().isOnScene && Fsm.Entity.isOnScene)
                 Fsm.ChangeState(new CharacterAttackState<CharacterBehaviour>(enemy));
         }
     }
