@@ -46,6 +46,11 @@ public class BulletBehaviour : MonoBehaviour
         float distCovered = (Tm - t) * speed;
         float fracJourney = distCovered / d;
         Vector3 v = Vector3.Lerp(Position, target, fracJourney);
+		if (v.Equals(target))
+		{
+			Destroy(gameObject);
+			return;
+		}
         transform.localPosition = new Vector3(v.x, v.y - 4.0f * h * ((fracJourney * fracJourney) - fracJourney), v.z);
     }
 
