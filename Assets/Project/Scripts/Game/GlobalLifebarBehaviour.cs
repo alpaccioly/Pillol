@@ -22,7 +22,6 @@ public class GlobalLifebarBehaviour : MonoBehaviour {
 		board = go.GetComponent<BoardBehaviour> ();
 		maxMembers = board.membersPerTeam;
 		health = maxMembers * 1000f;
-		Debug.Log (health);
 		maxHealth = health;
 		barra = transform.FindChild("Bar");
 		barraSize = barra.localScale;
@@ -34,11 +33,8 @@ public class GlobalLifebarBehaviour : MonoBehaviour {
 		
 	}
 	public void Lower (float amount){
-		Debug.Log ("Bateu");
 		health = Mathf.Max (health - amount, 0f);
-		Debug.Log (health);
 		lifeRatio = health / maxHealth;
-		Debug.Log (lifeRatio);
 		barra.localScale = Vector3.Lerp (targetSize, barraSize, lifeRatio);
 		barra.renderer.material.color = Color.Lerp(Color.red, Color.green, lifeRatio);
 	}
