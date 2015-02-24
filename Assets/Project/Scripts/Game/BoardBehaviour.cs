@@ -47,6 +47,7 @@ namespace Board
             player.transform.parent = transform.FindChild("metaioSDK");
             CharacterBehaviour cb = player.GetComponent<CharacterBehaviour>();
             cb.TeamNumber = team;
+			cb.NameChar = name;
             player.GetComponent<metaioTracker>().cosID = marker;
             cb.cosID = marker;
             return cb;

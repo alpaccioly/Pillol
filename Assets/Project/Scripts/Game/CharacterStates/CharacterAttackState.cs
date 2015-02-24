@@ -14,7 +14,7 @@ public class CharacterAttackState<T> : CharacterBaseState
 
     public override void Start()
     {
-        time = Random.Range(Fsm.Entity.attackFreqMin, Fsm.Entity.attackFreqMax);
+		time = Random.Range((float)Fsm.Entity.Parameters.FrequenciaAtaqueMin, (float)Fsm.Entity.Parameters.FrequenciaAtaqueMax);
     }
     
     public override void Update()
@@ -29,7 +29,7 @@ public class CharacterAttackState<T> : CharacterBaseState
 
         if (time < 0f)
         {
-            time = Random.Range(Fsm.Entity.attackFreqMin, Fsm.Entity.attackFreqMax);
+            time = Random.Range(Fsm.Entity.Parameters.FrequenciaAtaqueMin, Fsm.Entity.Parameters.FrequenciaAtaqueMax);
 
             CharacterBehaviour enemyCB = enemy.gameObject.GetComponent<CharacterBehaviour>();
             if (enemy != null && enemyCB.Lifebar > 0 && enemyCB.isOnScene && Fsm.Entity.isOnScene)
