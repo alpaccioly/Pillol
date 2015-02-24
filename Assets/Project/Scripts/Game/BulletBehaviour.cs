@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using GameUtils;
 
 public class BulletBehaviour : MonoBehaviour
 {
@@ -56,10 +57,12 @@ public class BulletBehaviour : MonoBehaviour
 
     private bool didHit()
     {
-        const float c = 2f , p1= 1f , p2= 1f;
+		float c = BalancingGame.General.MasterAcerto , p1= BalancingGame.General.ArmaPoderInfluenceAcerto , 
+		p2 = BalancingGame.General.DistanceInfluenceAcerto;
         float rand = Random.Range(0f, 1f);
-        float p = c * Aj * Aj * Mathf.Sqrt(Aa * p1 - (1f / Rj) * p2);
-        return rand < p;
+		float p = c * Aj * Aj * Mathf.Sqrt(Mathf.Max(Aa * p1 + (p2 / Rj/Rj),0f));
+		//Debug.Log(string.Format("ProbAcertar:{0}",p));
+		return rand < p;
     }
 
     void OnTriggerEnter(Collider col)
