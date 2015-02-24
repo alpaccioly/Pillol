@@ -8,6 +8,7 @@ public class CharacterFaintState<T> : CharacterBaseState
     {
         Debug.Log("DIED :(");
 		Fsm.Entity.SetAnimation ("Dead", 1f);
+		Fsm.Entity.GetComponent<BoxCollider> ().enabled = false;
     }
     
     public override void Update()

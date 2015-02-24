@@ -15,6 +15,7 @@ public class GlobalLifebarBehaviour : MonoBehaviour {
 	private Vector3 barraSize;
 	private Vector3 targetSize;
 	private float lifeRatio;
+	private float time = 20f;
 	//private List<CharacterBehaviour> team;
 
 	// Use this for initialization
@@ -41,7 +42,11 @@ public class GlobalLifebarBehaviour : MonoBehaviour {
 	}
 	// Update is called once per frame
 	void Update () {
-		if (lifeRatio <= 0) {
+		if (time > 0) {
+			time = time - Time.deltaTime;
+		}
+
+		if (time<0 && health <= 0) {
 			board.EndGame(this.TeamNumber);		
 		}
 	}
