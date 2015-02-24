@@ -14,7 +14,7 @@ public class CharacterAttackState<T> : CharacterBaseState
 
     public override void Start()
     {
-		time = 2.3f;
+		time = 1.2f;
 		CharacterBehaviour enemyCB = enemy.gameObject.GetComponent<CharacterBehaviour>();
 		if (enemy != null && enemyCB.Lifebar > 0 && enemyCB.isOnScene && Fsm.Entity.isOnScene)
 		{   
