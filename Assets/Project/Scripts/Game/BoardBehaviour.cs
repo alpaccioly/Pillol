@@ -47,6 +47,7 @@ namespace Board
             CharacterBehaviour cb = player.GetComponent<CharacterBehaviour>();
             cb.TeamNumber = team;
 			cb.NameChar = name;
+			cb.LoadParametersBalance();
             player.GetComponent<metaioTracker>().cosID = marker;
             cb.cosID = marker;
             return cb;

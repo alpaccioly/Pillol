@@ -43,7 +43,7 @@ namespace GameUtils{
         
     }
 
-    public class BalancingGame :MonoBehaviour
+    public class BalancingGame : MonoBehaviour
     {
         public bool SaveChangesOnStatic = false;
         public GeneralConstants general; 
@@ -53,10 +53,9 @@ namespace GameUtils{
         public static GeneralConstants General; 
         public static CharacterParams[] Personagens;
         public static ArmaParams[] Armas;
-
+	
         public void Awake(){
             LoadOnStatic();
-            Application.LoadLevel("Test");
         }
         void Update()
         {
