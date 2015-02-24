@@ -89,5 +89,11 @@ namespace Board
                 return TeamB;
             return null;
         }
+
+		public void EndGame(int loserTeam)
+		{
+			PlayerPrefs.SetInt ("Winner", (loserTeam + 1) % 2);
+			Application.LoadLevel("EndGame");
+		}
     }
 }

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Board;
 
 public class GlobalLifebarBehaviour : MonoBehaviour {
+	public int TeamNumber;
 	private float health;
 	private float maxHealth;
 	//public int TeamNo;
@@ -40,6 +41,8 @@ public class GlobalLifebarBehaviour : MonoBehaviour {
 	}
 	// Update is called once per frame
 	void Update () {
-
+		if (lifeRatio <= 0) {
+			board.EndGame(this.TeamNumber);		
+		}
 	}
 }
