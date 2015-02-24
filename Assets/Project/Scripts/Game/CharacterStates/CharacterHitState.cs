@@ -16,6 +16,7 @@ public class CharacterHitState<T> : CharacterBaseState
 
     public override void Start()
     {
+		Fsm.Entity.SetAnimation ("ReciveDamage", 0.1f);
         Fsm.Entity.Hit(damage);
     }
     

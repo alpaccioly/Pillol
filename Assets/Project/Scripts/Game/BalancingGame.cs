@@ -35,10 +35,10 @@ namespace GameUtils{
         [Range(0.0F, 10.0F)]
         public float Defesa;
         
-        [Range(0.0F, 10.0F)]
+        [Range(2.0F, 10.0F)]
         public float FrequenciaAtaqueMin;
         
-        [Range(0.0F, 10.0F)]
+        [Range(2.0F, 12.0F)]
         public float FrequenciaAtaqueMax;
         
     }

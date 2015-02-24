@@ -20,9 +20,12 @@ public class CharacterBehaviour : MonoBehaviour
 	public CharacterParams Parameters;
 	public ArmaParams ArmParam;
     public float Lifebar = 0f;
+	public Animator AnimatorController;
+
     // Use this for initialization
     void Awake()
     {
+		AnimatorController = transform.Find ("Skeleton").GetComponent<Animator> ();
         firePointTr = transform.Find("FirePoint");
         fsm = new FSM<CharacterBehaviour>(this, new CharacterPreGameState<CharacterBehaviour>());
 		isOnScene = false;
@@ -106,5 +109,10 @@ public class CharacterBehaviour : MonoBehaviour
 		Parameters = BalancingGame.GetCharParams (NameChar);
 		ArmParam = BalancingGame.Armas [0];
 		Lifebar = Parameters.Life;
+	}
+
+	public void SetAnimation(string stateName, float duration)
+	{
+		AnimatorController.CrossFade(stateName,duration);
 	}
 }
