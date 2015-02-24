@@ -13,8 +13,9 @@ public class CharacterBaseState : State<CharacterBehaviour>
     {
        	float c = BalancingGame.General.MasterDamage , p1= BalancingGame.General.ArmaPowerInfluenceDamage ,
 			p2= BalancingGame.General.DistanceInfluenceDamage;
-        float damage = c * bullet.Aj / Fsm.Entity.Parameters.Defesa * (p1 * bullet.Aa * bullet.Aj - p2 / bullet.Rj / bullet.Rj);
-        Fsm.ChangeState(new CharacterHitState<CharacterBehaviour>(damage));
+        float damage = c * bullet.Aj / Fsm.Entity.Parameters.Defesa * (p1 * bullet.Aa * bullet.Aj + p2 / bullet.Rj / bullet.Rj);
+		//Debug.Log(string.Format("Damage {1} {0}",damage,Fsm.Entity.NameChar));
+		Fsm.ChangeState(new CharacterHitState<CharacterBehaviour>(damage));
     }
 
     public override void Start()
