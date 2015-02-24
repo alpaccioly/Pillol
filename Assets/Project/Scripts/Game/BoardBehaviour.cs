@@ -55,10 +55,9 @@ namespace Board
 
         void Awake()
         {
-            string[] names = {"PufPowBichinho", "PufPowGalego", "PufPowGarotaLoira",
-                "PufPowGordo", "PufPowMain", "PufPowNega", "PufPowNego",
-                "PufPowNerd", "PufPowPequena", "PufPowPunk"};
-
+			Debug.Log("LOL " + PlayerPrefs.GetString ("Characters"));
+			string[] names = PlayerPrefs.GetString ("Characters").Split(new char[] {','});
+			Debug.Log (names);
             InstChars(names);
         }
 
