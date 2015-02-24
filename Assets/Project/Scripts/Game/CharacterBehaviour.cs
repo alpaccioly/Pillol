@@ -37,6 +37,13 @@ public class CharacterBehaviour : MonoBehaviour
         // Tem que estart aqui no Start
         board = transform.parent.parent.GetComponent<BoardBehaviour>();
 		lifebars = board.transform.Find ("Lifebars");
+
+		Color color;
+		if (TeamNumber == 0)
+			color = new Color(255, 0, 0);
+		else
+			color = new Color(0, 0, 255);
+		transform.FindChild("Base").renderer.material.color = color;
     }
 
     public void Attack(Transform alvo)
@@ -73,6 +80,7 @@ public class CharacterBehaviour : MonoBehaviour
 
     public void Hit(float damage)
     {
+		Debug.Log(name + ": lasquei-me");
         Lifebar = Mathf.Max(Lifebar - damage, 0f);
 		if (TeamNumber == 0) {
 			lifebarTeam = lifebars.transform.Find ("GlobalLifebarA");

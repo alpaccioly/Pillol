@@ -21,7 +21,6 @@ namespace Board
                 if(cb.cosID == id)
                 {
                     cb.isOnScene = onScene;
-                    Debug.Log("Setting character state: " + id + " " + onScene);
                     return;
                 }
             }
