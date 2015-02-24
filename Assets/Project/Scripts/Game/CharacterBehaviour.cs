@@ -3,9 +3,11 @@ using System.Collections;
 using Board;
 using System.Collections.Generic;
 using FiniteStateMachine;
+using GameUtils;
 
 public class CharacterBehaviour : MonoBehaviour
 {
+	public string NameChar;
     public FSM<CharacterBehaviour> fsm;
     public int TeamNumber;
     private Transform firePointTr;
@@ -15,25 +17,22 @@ public class CharacterBehaviour : MonoBehaviour
     public int cosID;
 	private Transform lifebarTeam;
 	private GlobalLifebarBehaviour lfb;
-
-    public float Lifebar = 1000f;
-
-    // Frequencia de tiro
-    public float attackFreqMax = 2f, attackFreqMin = 3f;
-
-    // Arma do atirador
-    public float Aa = 10f;
-    // Habilidade do jogador
-    public float Aj = 10f;
-    // Defesa do personagem
-    public float Dp = 10f;
-
+	public CharacterParams Parameters;
+	public ArmaParams ArmParam;
+    public float Lifebar = 0f;
     // Use this for initialization
     void Awake()
     {
         firePointTr = transform.Find("FirePoint");
         fsm = new FSM<CharacterBehaviour>(this, new CharacterPreGameState<CharacterBehaviour>());
-        isOnScene = false;
+		isOnScene = false;
+
+		Color color;
+		if (TeamNumber == 0)
+			color = new Color(255, 0, 0);
+		else
+			color = new Color(0, 0, 255);
+//		transform.FindChild("Base").renderer.material.color = color;
     }
 
     void Start()
@@ -41,13 +40,6 @@ public class CharacterBehaviour : MonoBehaviour
         // Tem que estart aqui no Start
         board = transform.parent.parent.GetComponent<BoardBehaviour>();
 		lifebars = board.transform.Find ("Lifebars");
-
-		Color color;
-		if (TeamNumber == 0)
-			color = new Color(255, 0, 0);
-		else
-			color = new Color(0, 0, 255);
-		transform.FindChild("Base").renderer.material.color = color;
     }
 
     public void Attack(Transform alvo)
@@ -59,7 +51,7 @@ public class CharacterBehaviour : MonoBehaviour
         BulletBehaviour bala = go.GetComponent<BulletBehaviour>();
         bala.Chr = this;
         bala.Position = go.transform.localPosition;
-        bala.MoveTo(alvo.localPosition, Aa, Aj);
+        bala.MoveTo(alvo.localPosition,ArmParam.Power , Parameters.Habilidade);
     }
 
     public Transform FindEnemy()
@@ -108,4 +100,10 @@ public class CharacterBehaviour : MonoBehaviour
     {
         fsm.Update();
     }
+
+	public void LoadParametersBalance(){
+		Parameters = BalancingGame.GetCharParams (NameChar);
+		ArmParam = BalancingGame.Armas [0];
+		Lifebar = Parameters.Life;
+	}
 }
