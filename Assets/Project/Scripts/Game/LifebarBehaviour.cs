@@ -7,8 +7,9 @@ public class LifebarBehaviour : MonoBehaviour {
     Vector3 barraSize;
     Vector3 targetSize;
     float lifeRatio;
+
     // Use this for initialization
-    void Awake () {
+    void Awake() {
         Transform pai = transform.parent;
         cb = pai.GetComponent<CharacterBehaviour>();
         barra = transform.Find("Bar");
@@ -16,15 +17,15 @@ public class LifebarBehaviour : MonoBehaviour {
         targetSize = barraSize;
         targetSize.x = 0.0f;
     }
-    void Start () {
+
+    void Start() {
         
     }
     
     // Update is called once per frame
-    void Update () {
-        //life = (int) Mathf.Ceil(cb.Lifebar);
+    void Update() {
         lifeRatio = cb.Lifebar * 0.001f;
-        barra.localScale = Vector3.Lerp (targetSize, barraSize, lifeRatio);
+        barra.localScale = Vector3.Lerp(targetSize, barraSize, lifeRatio);
         barra.renderer.material.color = Color.Lerp(Color.red, Color.green, lifeRatio);
     }
 }

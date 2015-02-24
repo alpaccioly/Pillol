@@ -73,9 +73,6 @@ public class metaioCamera : MonoBehaviour
 			matrix.m33 = m[15];
 			
 			camera.projectionMatrix = matrix * Matrix4x4.Scale(new Vector3(-1, 1, 1));
-
-			Debug.Log("Setting projection matrix: " + camera.projectionMatrix.ToString());
-			
 			updateProjectionMatrix = false;
 		}
 	}
